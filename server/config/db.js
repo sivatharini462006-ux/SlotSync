@@ -1,6 +1,8 @@
 const mysql = require('mysql2/promise');
 require('dotenv').config();
 
+const isRemoteDB = process.env.DB_HOST && process.env.DB_HOST !== 'localhost' && process.env.DB_HOST !== '127.0.0.1';
+
 // Create a connection pool using InnoDB-compatible settings
 const pool = mysql.createPool({
   host: process.env.DB_HOST || 'localhost',
@@ -8,6 +10,7 @@ const pool = mysql.createPool({
   password: process.env.DB_PASSWORD || '',
   database: process.env.DB_NAME || 'slotsync_db',
   port: Number(process.env.DB_PORT) || 3306,
+  ssl: isRemoteDB ? { rejectUnauthorized: false } : undefined,
   waitForConnections: true,
   connectionLimit: 15, // Supports concurrent booking requests cleanly
   queueLimit: 0,
