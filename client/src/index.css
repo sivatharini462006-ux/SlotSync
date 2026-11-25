@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans antialiased text-navy-900 bg-navy-50;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Elevate general page elements */
+@layer components {
+  /* Interactive Interactive Booking Grid Custom Cells */
+  .grid-time-slot {
+    @apply relative border border-navy-100 rounded-lg p-2 text-center text-xs font-semibold transition-all duration-300 select-none cursor-pointer;
+  }
+  
+  .grid-time-slot-available {
+    @apply bg-white hover:bg-royal-50 text-navy-700 hover:text-royal-600 hover:border-royal-500/30 hover:shadow-soft hover:scale-[1.01];
+  }
+
+  .grid-time-slot-selected {
+    @apply bg-royal-600 text-white border-royal-700 shadow-glow-teal scale-[0.99] font-bold;
+  }
+
+  .grid-time-slot-occupied {
+    @apply bg-navy-100 text-navy-700 cursor-not-allowed border-transparent line-through opacity-60;
+  }
+
+  /* Glassmorphic overlays for high-end modal backdrops, dropdowns */
+  .glass-panel {
+    @apply bg-white/85 backdrop-blur-md border border-navy-100/80 shadow-card;
+  }
+
+  /* Status badge styling for reservations, queues */
+  .badge-emerald {
+    @apply bg-teal-50 text-royal-700 border border-teal-200/50 px-2.5 py-1 rounded-full text-xs font-bold inline-flex items-center gap-1;
+  }
+
+  .badge-amber {
+    @apply bg-amber-50 text-amber-700 border border-amber-200/50 px-2.5 py-1 rounded-full text-xs font-bold inline-flex items-center gap-1;
+  }
+
+  .badge-rose {
+    @apply bg-rose-50 text-rose-700 border border-rose-200/50 px-2.5 py-1 rounded-full text-xs font-bold inline-flex items-center gap-1;
+  }
+
+  /* Modern custom inputs and buttons with feedback transitions */
+  .btn-sea-glass {
+    @apply bg-royal-600 hover:bg-royal-500 active:scale-[0.98] text-white text-sm font-semibold py-2.5 px-5 rounded-xl border border-transparent shadow-md hover:shadow-glow-teal transition-all duration-300 inline-flex items-center justify-center gap-2;
+  }
+
+  .btn-ash-secondary {
+    @apply border border-navy-100 bg-white hover:bg-navy-50 text-navy-700 text-sm font-semibold py-2.5 px-5 rounded-xl hover:text-navy-900 transition-all duration-300 inline-flex items-center justify-center gap-2;
+  }
+
+  .input-standard {
+    @apply w-full bg-white border border-navy-100 rounded-xl px-4.5 py-3 text-sm text-navy-900 placeholder:text-navy-700 hover:border-royal-500 focus:border-royal-600 focus:ring-2 focus:ring-royal-500/20 outline-none transition-all duration-300;
+  }
+}
